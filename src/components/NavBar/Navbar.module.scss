@@ -1,0 +1,22 @@
+.navigation{
+    // height: 10vh;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    img {
+        width: 5rem;
+    }
+    ul {
+        margin: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        li {
+        margin: 20px;
+        color: white;
+        list-style: none;
+        }
+    }
+
+}
