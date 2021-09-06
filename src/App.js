@@ -17,6 +17,7 @@ function ProtectedRoute(props) {
   if (!isUserLoggedIn) {
     return <Redirect to="/" />;
   }
+  console.log(props);
   return <Route path={props.path}> {props.children}</Route>;
 }
 
@@ -48,7 +49,6 @@ function App() {
           <Login islogin={globalLogin} />
         </Route> 
         <Route exact path="/register" component={Register} />
-        {/* <Route exact path="/todos" component={Todos} /> */}
         <ProtectedRoute exact path="/todos" >
           <Todos />
         </ProtectedRoute>

@@ -65,21 +65,26 @@ export default function Todos(){
     }
 
     const deletetodo=async (e)=>{
-        try{
-            let obj={
-                method:"DELETE",
-                headers:{
-                    "Accept":"application/json",
-                    'Content-Type': 'application/json'
+        if(window.confirm('Are you sure you want to delete?')){
+            try{
+                let obj={
+                    method:"DELETE",
+                    headers:{
+                        "Accept":"application/json",
+                        'Content-Type': 'application/json'
+                    }
                 }
+                let response=await apicall({url:`${url}/${e.target.parentNode.id}`,obj:obj})
+                if(response){
+                    fetchTodos()
+                }
+            }catch(error){
+                console.log(error);
             }
-            let response=await apicall({url:`${url}/${e.target.parentNode.id}`,obj:obj})
-            if(response){
-                fetchTodos()
-            }
-        }catch(error){
-            console.log(error);
+        }else{
+            return;
         }
+        
     }
 
     return(
