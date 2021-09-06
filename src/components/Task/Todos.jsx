@@ -36,7 +36,7 @@ export default function Todos(){
     };
     
 
-    const add=async ()=>{
+    const add=async (e)=>{
         let newtask={
             taskId:uniqid(),
             content:input,
@@ -58,6 +58,7 @@ export default function Todos(){
                 let copy=[...todos]
                 copy.push(response.data)
                 setTodo(copy)
+                setInput("")
             }
         }catch(error){
             console.log(error);

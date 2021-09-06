@@ -1,4 +1,4 @@
-import {  Switch, Route , BrowserRouter,Redirect} from 'react-router-dom';
+import {  Switch, Route , HashRouter,BrowserRouter,Redirect} from 'react-router-dom';
 import Register from "./components/Register/Register"
 import Login from './components/Login/Login'
 import Todos from './components/Task/Todos';
@@ -17,7 +17,6 @@ function ProtectedRoute(props) {
   if (!isUserLoggedIn) {
     return <Redirect to="/" />;
   }
-  console.log(props);
   return <Route path={props.path}> {props.children}</Route>;
 }
 
@@ -41,6 +40,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    {/* <HashRouter> */}
     <div className="App">
       <Navbar islogin={loggedin} islogout={globalLogout} />
 			<Switch >
@@ -55,7 +55,8 @@ function App() {
 			</Switch>
 			<Footer />
     </div>
-    </BrowserRouter>
+    {/* </HashRouter> */}
+    </BrowserRouter>    
   );
 }
 
