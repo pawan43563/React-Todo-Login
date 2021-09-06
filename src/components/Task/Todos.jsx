@@ -1,18 +1,14 @@
 import React, { useState ,useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import Task from "./Task"
 import uniqid from "uniqid"
-import './Task.css'
+import styles from './Task.module.css'
 import apicall from "../../apicalls"
 let url="https://polar-woodland-07461.herokuapp.com/tasks"
 
 export default function Todos(){
     let [todos,setTodo]=useState([])
     let [input,setInput]=useState("")
-    const history = useHistory();
-    if(!localStorage.getItem('token')){
-        history.push('/')
-    }
+
     function setvalue(e){
         setInput(e.target.value)
     }
@@ -87,13 +83,13 @@ export default function Todos(){
     }
 
     return(
-        <div id="container">
+        <div className={styles.container}>
             <h1>Todolist</h1>
-            <input type="text" placeholder="Add todo" id="task" value={input} onChange={setvalue}/>
+            <input type="text" placeholder="Add todo" className={styles.task} value={input} onChange={setvalue}/>
             <button onClick={add}>Add Task</button>
-            <div className="tasklist">
+            <div className={styles.tasklist}>
             {todos.map((e)=>(
-                <Task todo={e} deletetodo={deletetodo}/>
+                <Task key={e.taskId} todo={e} deletetodo={deletetodo}/>
             ))}
             </div>
         </div>

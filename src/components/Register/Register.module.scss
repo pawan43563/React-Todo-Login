@@ -16,6 +16,9 @@ $border-radius:15px;
         color:black;
         margin-bottom: 0px;
     }
+    @media screen and (max-width:411px) {
+        padding: 10px;
+    }
 }
 
 .register{

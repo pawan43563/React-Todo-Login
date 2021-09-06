@@ -9,7 +9,7 @@ export default function Home(){
 
     return(
         <div className={styles.homeContainer}>
-            <h1>Organize your tasks with our simple Todolist application.</h1>
+            <h1>Organize your tasks with our simple Todo application.</h1>
             <button onClick={redirect}>Get Started</button>
         </div>
     )

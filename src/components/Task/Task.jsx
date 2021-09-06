@@ -1,10 +1,10 @@
 import React from "react"
-import './Task.css'
+import styles from './Task.module.css'
 export default function Task({todo,deletetodo}){
     return(
-        <div className="item" key={todo.taskId} id={todo.taskId}>
+        <div className={styles.item}  id={todo.taskId}>
             <i className="fa fa-circle"></i>
-            <p className="inputitem">{todo.content}</p>
+            <p className={styles.inputitem}>{todo.content}</p>
             {/* <input type="text" className="inputitem" value={todo.content} /> */}
             <i className="fa fa-edit"></i>
             <p id="time">{todo.createdAt}</p>

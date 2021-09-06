@@ -37,7 +37,7 @@ export default function Login({islogin}){
             else{
                 let token=await response.data.token
                 localStorage.setItem('token',token)
-                islogin()
+                islogin();
                 history.push('/todos')
             }
         }catch(error){

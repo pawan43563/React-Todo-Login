@@ -1,6 +1,6 @@
 
 
-const apicall=async ({url:url,obj={}})=>{
+const apicall=async ({url,obj={}})=>{
     try{
         let response=await fetch(url,obj)
         let data=await response.json()

@@ -1,4 +1,4 @@
-import {  Switch, Route , BrowserRouter} from 'react-router-dom';
+import {  Switch, Route , BrowserRouter,Redirect} from 'react-router-dom';
 import Register from "./components/Register/Register"
 import Login from './components/Login/Login'
 import Todos from './components/Task/Todos';
@@ -7,6 +7,19 @@ import Navbar from './components/NavBar/Navbar';
 import Footer from './components/Footer/Footer'
 import './App.css'
 import { useEffect, useState } from 'react';
+
+function ProtectedRoute(props) {
+  // ideally this state will be common shared state
+  let isUserLoggedIn = false;
+  if(localStorage.getItem('token')){
+    isUserLoggedIn = true
+  }
+  if (!isUserLoggedIn) {
+    return <Redirect to="/" />;
+  }
+  return <Route path={props.path}> {props.children}</Route>;
+}
+
 function App() {
 
   const [loggedin,setLoggedin]=useState(false)
@@ -29,11 +42,16 @@ function App() {
     <BrowserRouter>
     <div className="App">
       <Navbar islogin={loggedin} islogout={globalLogout} />
-			<Switch className="body">
+			<Switch >
 				<Route path="/" exact component={Home} />
-				<Route exact path="/login"  render={(props) => <Login islogin={globalLogin} {...props} /> } />
+				<Route exact path="/login" >
+          <Login islogin={globalLogin} />
+        </Route> 
         <Route exact path="/register" component={Register} />
-        <Route exact path="/todos" component={Todos} />
+        {/* <Route exact path="/todos" component={Todos} /> */}
+        <ProtectedRoute exact path="/todos" >
+          <Todos />
+        </ProtectedRoute>
 			</Switch>
 			<Footer />
     </div>
