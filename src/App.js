@@ -42,7 +42,8 @@ function App() {
     <BrowserRouter>
   <div className="App">
       <Navbar islogin={loggedin} islogout={globalLogout} />
-			<Switch >
+      <div className="body1">
+      <Switch >
 				<Route path="/" exact component={Home} />
 				<Route exact path="/login" >
           <Login islogin={globalLogin} />
@@ -52,6 +53,7 @@ function App() {
           <Todos />
         </ProtectedRoute>
 			</Switch>
+      </div>
 			<Footer />
     </div>
     </BrowserRouter>    
