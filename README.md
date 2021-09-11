@@ -6,7 +6,8 @@ This application includes basic authentication where user can login and register
 * Made use of yup library for validating user inputs.
 
 
-Link: [Netlify](https://priceless-hawking-3ae139.netlify.app/)
+## Link
+[Netlify](https://priceless-hawking-3ae139.netlify.app/)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
