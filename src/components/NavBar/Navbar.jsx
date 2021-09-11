@@ -3,6 +3,10 @@ import {Link,useHistory} from 'react-router-dom'
 import styles from './Navbar.module.scss'
 import logo from '../../logo.svg'
 
+const liststyle={
+    textDecoration:'none'
+}
+
 export default function Navbar({islogin,islogout}){
     const history = useHistory();
 
@@ -20,14 +24,14 @@ export default function Navbar({islogin,islogout}){
         </div>
         <nav>
             <ul>
-                <Link to="/">
+                <Link to="/" style={liststyle}>
                     <li>Home</li>
                 </Link>
                 {
                     islogin ?
                     " "
                     :
-                    <Link to="/register">
+                    <Link to="/register" style={liststyle}>
                     <li>Register</li>
                     </Link>
 
@@ -36,7 +40,7 @@ export default function Navbar({islogin,islogout}){
                     islogin ?
                     <li onClick={logout}>Logout</li>
                     :
-                    <Link to="/login">
+                    <Link to="/login" style={liststyle}>
                     <li>Login</li>
                     </Link>
 

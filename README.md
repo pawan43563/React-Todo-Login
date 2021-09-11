@@ -1,8 +1,29 @@
-# React Todo-Login
+# React Login-Form
+This application includes basic authentication where user can login and register. 
+
+## Features
+* On login user can view Todo list. If user tries to access todo without logging in than he will be taken to home page.
+* Made use of yup library for validating user inputs.
+
+
 Link: [Netlify](https://priceless-hawking-3ae139.netlify.app/)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
+## Downloading and Running this Project Locally
+
+1. clone the repository
+```
+git clone https://github.com/pawan43563/React-Todo-Login.git
+```
+
+2. change directory to `cd React-Todo-Login`
+
+3. run command `npm install` to install all dependencies
+
+
 
 ## Available Scripts
 
