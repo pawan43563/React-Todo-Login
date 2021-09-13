@@ -52,7 +52,6 @@ export default function Todos(){
                 },
                 body:JSON.stringify(newtask)
             }
-            console.log(obj);
             let response = await apicall({url:url,obj:obj})
             if(response.data){
                 let copy=[...todos]
